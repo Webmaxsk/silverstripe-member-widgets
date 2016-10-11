@@ -1,0 +1,16 @@
+{
+	"name": "webmaxsk/silverstripe-member-widgets",
+	"description": "Allow customization of widgets area by logged in member. Member can hide default widgets or add new widgets. Custom sorting of available.",
+	"type": "silverstripe-module",
+	"license": "BSD-3-Clause",
+	"keywords": ["silverstripe", "widgets"],
+	"authors": [
+		{
+			"name": "Rastislav Brandobur",
+			"email": "brandobur@webmax.sk"
+		}
+	],
+	"extra": {
+		"installer-name": "z-silverstripe-member-widgets"
+	}
+}

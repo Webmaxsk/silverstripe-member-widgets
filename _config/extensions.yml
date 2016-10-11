@@ -1,0 +1,15 @@
+Page:
+  extensions:
+    - MemberWidgetsPageExtension
+
+Page_Controller:
+  extensions:
+    - MemberWidgetsPageControllerExtension
+
+Member:
+  extensions:
+    - MemberWidgetsMemberExtension
+
+Widget:
+  extensions:
+    - MemberWidgetsWidgetExtension
