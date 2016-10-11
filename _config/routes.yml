@@ -1,0 +1,3 @@
+Director:
+  rules:
+    'memberwidgets//$Action': 'MemberWidgets_Controller'
