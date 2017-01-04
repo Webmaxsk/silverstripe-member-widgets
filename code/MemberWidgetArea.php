@@ -34,7 +34,7 @@ class MemberWidgetArea extends WidgetArea {
 		}
 
 		if ($itemsToRender = $this->ItemsToRender())
-			$widgetItems->merge();
+			$widgetItems->merge($itemsToRender);
 
 		if ($widgetItems->exists()) {
 			foreach ($widgetItems as $widget) {
