@@ -12,5 +12,8 @@
 	],
 	"extra": {
 		"installer-name": "z-silverstripe-member-widgets"
+	},
+	"require": {
+		"silverstripe/widgets": "1.2.4"
 	}
 }
