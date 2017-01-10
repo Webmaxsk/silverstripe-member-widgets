@@ -15,7 +15,7 @@ class MemberWidgetArea extends WidgetArea {
 		$sortIDs = false;
 		$disabledWidgetsIDs = false;
 
-		$page = $this->Page();
+		$page = Controller::curr();
 
 		if ($page->ID) {
 			if ($sideBar = $page->SideBarView())

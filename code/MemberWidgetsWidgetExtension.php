@@ -43,6 +43,6 @@ class MemberWidgetsWidgetExtension extends DataExtension {
 	}
 
 	public function currentPageID() {
-    	return ($ID = Controller::curr()->ID) > 0 ? $ID : null;
+    	return Controller::curr()->ID;
     }
 }
