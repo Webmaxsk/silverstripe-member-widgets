@@ -18,7 +18,14 @@ $(document).on('click', "#Form_AddWidgetForm_action_doAddMemberWidget", function
 				var json = jQuery.parseJSON(data);
 
 				if(typeof json == 'object') {
-					widgets.append(json.Widget);
+					var widget = $(json.Widget);
+					if (widgets.hasClass('memberwidgets-isotope'))
+						widget.addClass('memberwidgets-isotope-item');
+
+					widgets.append(widget);
+
+					if (widgets.hasClass('memberwidgets-isotope'))
+						widgets.isotope('appended', widget);
 
 					if ($('#widgetSettings').hasClass('active'))
 						$('#widget-'+json.WidgetID+' .editMemberWidget').toggle();

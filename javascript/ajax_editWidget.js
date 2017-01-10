@@ -1,11 +1,13 @@
 $(document).on('click', "#Form_EditWidgetForm_action_doEditMemberWidget, #Form_EditWidgetForm_action_doDeleteMemberWidget", function(event) {
 	event.preventDefault();
 
-	var form = $('#Form_EditWidgetForm');
+	var form = $("#Form_EditWidgetForm");
 	var submitButton = $(this);
 
 	var actionName = $(this).attr("name");
 	var action = actionName+"="+$(this).attr("value");
+
+	var memberWidgetsIsotope = $('#memberwidgets-sortable.memberwidgets-isotope');
 
 	$.ajax(form.attr('action'), {
 		type: "POST",
@@ -19,16 +21,28 @@ $(document).on('click', "#Form_EditWidgetForm_action_doEditMemberWidget, #Form_E
 				var json = jQuery.parseJSON(data);
 
 				if(typeof json == 'object') {
-					var widget = $('#memberwidgets-sortable #widget-'+json.WidgetID);
+					var oldWidget = $('#memberwidgets-sortable #widget-'+json.WidgetID);
 
 					if (actionName=='action_doDeleteMemberWidget')
-						widget.remove();
+						oldWidget.remove();
 					else {
-						widget.replaceWith(json.Widget);
+						var newWidget = $(json.Widget);
+						if (memberWidgetsIsotope.length)
+							newWidget.addClass('memberwidgets-isotope-item');
+
+						oldWidget.replaceWith(newWidget);
+
+						if (memberWidgetsIsotope.length)
+							memberWidgetsIsotope.isotope('appended', newWidget);
 
 						if ($('#widgetSettings').hasClass('active')) 
 							$('#widget-'+json.WidgetID+' .editMemberWidget').toggle();
 					}
+
+					if (memberWidgetsIsotope.length)
+						memberWidgetsIsotope.isotope('reloadItems').isotope({
+							sortBy: 'original-order'
+						});
 
 					$.magnificPopup.close();
 				}
