@@ -36,6 +36,9 @@ class MemberWidgetArea extends WidgetArea {
 		if ($itemsToRender = $this->ItemsToRender())
 			$widgetItems->merge($itemsToRender);
 
+		if (Member::currentUserID() && $page->EnableAddWidget && ($addWidget = DataObject::get_one('AddWidgetWidget')))
+			$widgetItems->add($addWidget);
+
 		if ($widgetItems->exists()) {
 			foreach ($widgetItems as $widget) {
 				if ($disabledWidgetsIDs && isset($disabledWidgetsIDs[$widget->ID]))

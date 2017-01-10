@@ -2,9 +2,21 @@
 
 class MemberWidgetsPageExtension extends DataExtension {
 
+	private static $db = array(
+		'EnableAddWidget' => 'Boolean'
+	);
+
 	private static $has_many = array(
 		'MemberWidgetArea' => 'MemberWidgetArea'
 	);
+
+	private static $defaults = array(
+		'EnableAddWidget' => 1
+	);
+
+	public function updateCMSFields(FieldList $fields) {
+		$fields->addFieldToTab("Root.Widgets", new CheckboxField("EnableAddWidget", 'Povoliť pridávanie widgetov'));
+	}
 
 	public function currentMemberWidgetArea() {
 		return $this->owner->MemberWidgetArea()->filter('MemberID',Member::currentUserID())->limit(1)->first();
