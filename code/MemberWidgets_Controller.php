@@ -101,13 +101,7 @@ class MemberWidgets_Controller extends Page_Controller {
 	}
 
 	public function AddWidgetForm() {
-		$WidgetAreaEditor = new WidgetAreaEditor("MemberSideBar");
-
-		$availableWidgets = $WidgetAreaEditor->AvailableWidgets();
-
-		$availableWidgetsArray = array();
-		foreach ($availableWidgets as $availableWidget)
-			$availableWidgetsArray[$availableWidget->ClassName] = $availableWidget->Title;
+		$availableWidgets = WidgetAreaEditor::create("MemberSideBar")->AvailableWidgets()->map('ClassName','Title');
 
 		$fields = new FieldList();
 
@@ -116,7 +110,7 @@ class MemberWidgets_Controller extends Page_Controller {
 		else
 			$fields->push(new DropdownField('PageID','Stránka',Page::get()->map()));
 
-		$fields->push(new DropdownField('WidgetClass','Widget',$availableWidgetsArray));
+		$fields->push(new DropdownField('WidgetClass','Widget',$availableWidgets));
 
 
 		$actions = new FieldList(
