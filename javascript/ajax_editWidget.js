@@ -27,13 +27,8 @@ $(document).on('click', "#Form_EditWidgetForm_action_doEditMemberWidget, #Form_E
 						oldWidget.remove();
 					else {
 						var newWidget = $(json.Widget);
-						if (memberWidgetsIsotope.length)
-							newWidget.addClass('memberwidgets-isotope-item');
 
 						oldWidget.replaceWith(newWidget);
-
-						if (memberWidgetsIsotope.length)
-							memberWidgetsIsotope.isotope('appended', newWidget);
 
 						if ($('#widgetSettings').hasClass('active')) 
 							$('#widget-'+json.WidgetID+' .editMemberWidget').toggle();

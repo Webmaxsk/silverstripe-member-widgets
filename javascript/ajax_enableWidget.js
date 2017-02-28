@@ -19,8 +19,6 @@ $(document).on('click', "#Form_EnableWidgetForm_action_doEnableWidget", function
 
 				if(typeof json == 'object') {
 					var widget = $(json.Widget);
-					if (widgets.hasClass('memberwidgets-isotope'))
-						widget.addClass('memberwidgets-isotope-item');
 
 					widgets.append(widget);
 
