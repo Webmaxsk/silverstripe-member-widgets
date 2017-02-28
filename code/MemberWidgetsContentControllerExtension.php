@@ -13,16 +13,16 @@ class MemberWidgetsContentControllerExtension extends WidgetContentControllerExt
     private static $allowed_actions = array(
         'handleWidget'
     );
-    
+
     /**
      * Handles widgets attached to a page through one or more {@link WidgetArea}
      * elements.
      *
-     * Iterated through each $has_one relation with a {@link WidgetArea} and 
+     * Iterated through each $has_one relation with a {@link WidgetArea} and
      * looks for connected widgets by their database identifier.
-     * 
+     *
      * Assumes URLs in the following format: <URLSegment>/widget/<Widget-ID>.
-     * 
+     *
      * @return RequestHandler
      */
     public function handleWidget()
@@ -31,11 +31,11 @@ class MemberWidgetsContentControllerExtension extends WidgetContentControllerExt
         if (!$SQL_id) {
             return false;
         }
-        
+
         // find WidgetArea relations
         $widgetAreaRelations = array();
         $hasOnes = $this->owner->data()->hasOne();
-        
+
         if (!$hasOnes) {
             return false;
         }

@@ -30,7 +30,7 @@ $(document).on('click', "#Form_EditWidgetForm_action_doEditMemberWidget, #Form_E
 
 						oldWidget.replaceWith(newWidget);
 
-						if ($('#widgetSettings').hasClass('active')) 
+						if ($('#widgetSettings').hasClass('active'))
 							$('#widget-'+json.WidgetID+' .editMemberWidget').toggle();
 					}
 

@@ -4,7 +4,7 @@ function init_widgets(saveUrl, pageID) {
 
 	$(window).load(function() {
 		if (useIsotope)
-			memberWidgets.isotope({  
+			memberWidgets.isotope({
 				transformsEnabled: false,
 				itemSelector: '.memberwidgets-isotope-item'
 			});
