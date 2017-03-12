@@ -37,6 +37,7 @@ class MemberWidgetsPageControllerExtension extends Extension {
 			Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.js");
 			Requirements::javascript(THIRDPARTY_DIR."/jquery-ui/jquery-ui.js");
 
+			Requirements::javascript(MEMBER_WIDGETS_DIR."/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js");
 			Requirements::javascript(MEMBER_WIDGETS_DIR."/magnific-popup/dist/jquery.magnific-popup.min.js");
 			Requirements::javascript(MEMBER_WIDGETS_DIR."/javascript/widgets.js");
 			Requirements::javascript(MEMBER_WIDGETS_DIR."/javascript/ajax_addWidget.js");
